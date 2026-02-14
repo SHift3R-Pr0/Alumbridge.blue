@@ -104,8 +104,9 @@
             .btn-premium { padding: 1rem 2rem; font-size: 0.8rem; }
         }
 
+        /* Réduction additionnelle pour PC */
         @media (min-width: 1024px) {
-            .card-depth { padding: 2rem; max-width: 400px; }
+            .card-depth { padding: 1.75rem; max-width: 340px; }
         }
 
         .taskbar {
@@ -187,11 +188,6 @@
             60% {transform: translate(-50%, -5px);}
         }
 
-        @media (max-width: 480px) {
-            .taskbar { bottom: 16px; padding: 4px; gap: 2px; }
-            .task-item { padding: 6px 10px; font-size: 0.55rem; }
-        }
-
         header {
             position: fixed;
             top: 0;
@@ -261,7 +257,7 @@
 
     <header class="lg:px-12">
         <div class="text-lg md:text-xl lg:text-2xl font-black tracking-tighter cursor-pointer" onclick="scrollToScene(0)">ALUMBRIDGE.</div>
-        <button class="btn-premium py-2 px-4 text-[9px] md:text-[10px] lg:text-[12px]" onclick="openModal('questionnaire')">Inscription</button>
+        <button class="btn-premium py-2 px-4 text-[9px] md:text-[10px] lg:text-[11px]" onclick="openModal('questionnaire')">Inscription</button>
     </header>
 
     <div class="taskbar lg:bottom-10 lg:gap-2 lg:p-2">
@@ -288,7 +284,7 @@
     </div>
 
     <div class="swipe-indicator" id="scroll-hint">
-        <span class="text-[8px] lg:text-[10px] font-black uppercase tracking-[0.3em]">Défiler</span>
+        <span class="text-[8px] lg:text-[9px] font-black uppercase tracking-[0.3em]">Défiler</span>
         <svg width="14" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
     </div>
 
@@ -296,8 +292,8 @@
         <div id="viewport">
             
             <!-- 1. HERO -->
-            <div class="scene lg:max-w-5xl lg:mx-auto" id="scene-0">
-                <div class="svg-container w-full max-w-2xl opacity-10">
+            <div class="scene lg:max-w-4xl lg:mx-auto" id="scene-0">
+                <div class="svg-container w-full max-w-xl opacity-10">
                     <svg viewBox="0 0 800 200" fill="none" xmlns="http://www.w3.org/2000/svg" id="svg-bridge">
                         <path d="M50 150 C 200 50, 600 50, 750 150" stroke="currentColor" stroke-width="2" stroke-dasharray="10 10"/>
                         <path id="bridge-line" d="M50 150 C 200 50, 600 50, 750 150" stroke="#4f46e5" stroke-width="4" stroke-linecap="round"/>
@@ -305,24 +301,24 @@
                         <circle cx="750" cy="150" r="6" fill="#4f46e5"/>
                     </svg>
                 </div>
-                <h1 class="text-3xl md:text-7xl lg:text-6xl xl:text-7xl font-black leading-tight mb-4 lg:mb-6 tracking-tighter uppercase px-2">
+                <h1 class="text-3xl md:text-7xl lg:text-5xl xl:text-6xl font-black leading-tight mb-4 lg:mb-5 tracking-tighter uppercase px-2">
                     Le <span class="text-indigo-600">PONT</span> entre ton diplôme et ta carrière idéale.
                 </h1>
-                <h2 class="text-lg md:text-2xl lg:text-xl text-slate-500 mb-6 max-w-2xl px-4">
+                <h2 class="text-lg md:text-2xl lg:text-lg text-slate-500 mb-6 max-w-xl px-4">
                     Gagne en expérience réelle grâce au freelance encadré, sans la pression immédiate du CDI.
                 </h2>
-                <p class="text-[9px] md:sm lg:text-xs opacity-100 max-w-lg mb-8 font-medium uppercase tracking-widest px-4">
+                <p class="text-[9px] md:sm lg:text-[11px] opacity-100 max-w-lg mb-8 font-medium uppercase tracking-widest px-4">
                     Teste tes compétences, muscle ton CV et choisis ta voie avec l'appui du réseau alumni.
                 </p>
                 <div class="flex flex-col md:flex-row gap-4 w-full items-center justify-center px-4">
-                    <button class="btn-premium w-full md:w-auto lg:px-10" onclick="openModal('questionnaire')">Rejoindre l'aventure</button>
+                    <button class="btn-premium w-full md:w-auto lg:px-8" onclick="openModal('questionnaire')">Rejoindre l'aventure</button>
                     <button class="text-[9px] lg:text-[10px] font-bold uppercase tracking-widest border-b border-black pb-1" onclick="openModal('contact')">M'envoyer le lien par mail</button>
                 </div>
             </div>
 
             <!-- 2. PROBLÈME (PARADOXE) -->
             <div class="scene lg:max-w-4xl lg:mx-auto" id="scene-1">
-                <div class="svg-container w-64 h-64 opacity-10">
+                <div class="svg-container w-48 h-48 opacity-10">
                     <svg viewBox="0 0 200 200" id="svg-balance">
                         <line x1="100" y1="40" x2="100" y2="160" stroke="currentColor" stroke-width="2"/>
                         <g id="balance-arm">
@@ -332,29 +328,29 @@
                         </g>
                     </svg>
                 </div>
-                <div class="card-depth mb-6 lg:mb-8 py-4 lg:py-6">
-                    <p class="text-xs md:text-sm lg:text-base italic font-medium opacity-60">"On demande 3 ans d'XP pour un poste junior..."</p>
+                <div class="card-depth mb-6 lg:mb-6 py-4 lg:py-5 lg:max-w-xs">
+                    <p class="text-xs md:text-sm lg:text-[13px] italic font-medium opacity-60">"On demande 3 ans d'XP pour un poste junior..."</p>
                 </div>
-                <h2 class="text-2xl md:text-5xl lg:text-4xl font-black mb-8 uppercase px-2">Le paradoxe du jeune diplômé.</h2>
+                <h2 class="text-2xl md:text-5xl lg:text-3xl font-black mb-8 lg:mb-10 uppercase px-2">Le paradoxe du jeune diplômé.</h2>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 lg:gap-4 w-full px-4 lg:max-w-4xl">
-                    <div class="card-depth py-4 px-3 md:py-6 md:px-5 lg:py-5 border-l-4 border-l-indigo-600 text-left max-w-none">
-                        <p class="text-[10px] md:text-xs lg:text-xs font-black uppercase leading-tight tracking-tight">Une ligne fragile entre la joie et le vertige de l'après.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 lg:gap-3 w-full px-4 lg:max-w-3xl">
+                    <div class="card-depth py-4 px-3 md:py-6 md:px-5 lg:py-4 lg:px-4 border-l-4 border-l-indigo-600 text-left max-w-none">
+                        <p class="text-[10px] md:text-xs lg:text-[11px] font-black uppercase leading-tight tracking-tight">Une ligne fragile entre la joie et le vertige de l'après.</p>
                     </div>
-                    <div class="card-depth py-4 px-3 md:py-6 md:px-5 lg:py-5 border-l-4 border-l-indigo-600 text-left max-w-none">
-                        <p class="text-[10px] md:text-xs lg:text-xs font-black uppercase leading-tight tracking-tight">Le dilemme du CDI rassurant vs l'élan du freelance.</p>
+                    <div class="card-depth py-4 px-3 md:py-6 md:px-5 lg:py-4 lg:px-4 border-l-4 border-l-indigo-600 text-left max-w-none">
+                        <p class="text-[10px] md:text-xs lg:text-[11px] font-black uppercase leading-tight tracking-tight">Le dilemme du CDI rassurant vs l'élan du freelance.</p>
                     </div>
-                    <div class="card-depth py-4 px-3 md:py-6 md:px-5 lg:py-5 border-l-4 border-l-indigo-600 text-left max-w-none">
-                        <p class="text-[10px] md:text-xs lg:text-xs font-black uppercase leading-tight tracking-tight">L'exigence d'expérience réelle dès le premier poste.</p>
+                    <div class="card-depth py-4 px-3 md:py-6 md:px-5 lg:py-4 lg:px-4 border-l-4 border-l-indigo-600 text-left max-w-none">
+                        <p class="text-[10px] md:text-xs lg:text-[11px] font-black uppercase leading-tight tracking-tight">L'exigence d'expérience réelle dès le premier poste.</p>
                     </div>
-                    <div class="card-depth py-4 px-3 md:py-6 md:px-5 lg:py-5 border-l-4 border-l-indigo-600 text-left max-w-none">
-                        <p class="text-[10px] md:text-xs lg:text-xs font-black uppercase leading-tight tracking-tight">Cette peur silencieuse de ne pas être à la hauteur.</p>
+                    <div class="card-depth py-4 px-3 md:py-6 md:px-5 lg:py-4 lg:px-4 border-l-4 border-l-indigo-600 text-left max-w-none">
+                        <p class="text-[10px] md:text-xs lg:text-[11px] font-black uppercase leading-tight tracking-tight">Cette peur silencieuse de ne pas être à la hauteur.</p>
                     </div>
                 </div>
             </div>
 
             <!-- 3. SOLUTION -->
-            <div class="scene lg:max-w-6xl lg:mx-auto" id="scene-2">
+            <div class="scene lg:max-w-5xl lg:mx-auto" id="scene-2">
                 <div class="svg-container w-full h-full opacity-5">
                     <svg viewBox="0 0 1000 1000" id="svg-nodes">
                         <circle class="node" cx="200" cy="200" r="10" fill="currentColor"/>
@@ -367,19 +363,19 @@
                         <path class="node-link" d="M100 700 L200 200" stroke="currentColor" stroke-width="1"/>
                     </svg>
                 </div>
-                <h2 class="text-2xl md:text-5xl lg:text-4xl font-black mb-8 lg:mb-12 uppercase px-2">ALUMBRIDGE : <br><span class="text-indigo-600">Ton bac à sable pro.</span></h2>
-                <div class="solution-grid px-4 lg:max-w-5xl">
-                    <div class="card-depth max-w-none text-left border-t-2 md:border-t-4 border-t-indigo-600 lg:py-6 lg:px-6">
-                        <h3 class="font-black text-[13px] md:text-sm lg:text-base mb-2 md:mb-4 uppercase">1. Missions Concrètes</h3>
-                        <p class="text-[11px] md:text-xs lg:text-xs opacity-60">De vrais projets, de vrais enjeux pour ta carrière.</p>
+                <h2 class="text-2xl md:text-5xl lg:text-3xl font-black mb-8 lg:mb-10 uppercase px-2">ALUMBRIDGE : <br><span class="text-indigo-600">Ton bac à sable pro.</span></h2>
+                <div class="solution-grid px-4 lg:max-w-4xl lg:gap-3">
+                    <div class="card-depth max-w-none text-left border-t-2 md:border-t-4 border-t-indigo-600 lg:py-5 lg:px-5">
+                        <h3 class="font-black text-[13px] md:text-sm lg:text-[14px] mb-2 md:mb-4 uppercase">1. Missions Concrètes</h3>
+                        <p class="text-[11px] md:text-xs lg:text-[11px] opacity-60">De vrais projets, de vrais enjeux pour ta carrière.</p>
                     </div>
-                    <div class="card-depth max-w-none text-left border-t-2 md:border-t-4 border-t-indigo-600 lg:py-6 lg:px-6">
-                        <h3 class="font-black text-[13px] md:text-sm lg:text-base mb-2 md:mb-4 uppercase">2. Freelance Encadré</h3>
-                        <p class="text-[11px] md:text-xs lg:text-xs opacity-60">Liberté de l'indépendant, filet de sécurité du réseau.</p>
+                    <div class="card-depth max-w-none text-left border-t-2 md:border-t-4 border-t-indigo-600 lg:py-5 lg:px-5">
+                        <h3 class="font-black text-[13px] md:text-sm lg:text-[14px] mb-2 md:mb-4 uppercase">2. Freelance Encadré</h3>
+                        <p class="text-[11px] md:text-xs lg:text-[11px] opacity-60">Liberté de l'indépendant, filet de sécurité du réseau.</p>
                     </div>
-                    <div class="card-depth max-w-none text-left border-t-2 md:border-t-4 border-t-indigo-600 lg:py-6 lg:px-6">
-                        <h3 class="font-black text-[13px] md:text-sm lg:text-base mb-2 md:mb-4 uppercase">3. Crédibilité</h3>
-                        <p class="text-[11px] md:text-xs lg:text-xs opacity-60">Ne dis plus que tu "sais faire", prouve-le enfin.</p>
+                    <div class="card-depth max-w-none text-left border-t-2 md:border-t-4 border-t-indigo-600 lg:py-5 lg:px-5">
+                        <h3 class="font-black text-[13px] md:text-sm lg:text-[14px] mb-2 md:mb-4 uppercase">3. Crédibilité</h3>
+                        <p class="text-[11px] md:text-xs lg:text-[11px] opacity-60">Ne dis plus que tu "sais faire", prouve-le enfin.</p>
                     </div>
                 </div>
             </div>
@@ -393,20 +389,20 @@
                         <path class="floater" d="M50 80 L55 85 L45 85 Z" fill="#4f46e5" opacity="0.2"/>
                     </svg>
                 </div>
-                <div class="flex flex-wrap justify-center gap-2 md:gap-4 lg:gap-4 max-w-2xl lg:max-w-4xl mb-8 lg:mb-10 px-4">
-                    <div class="benefit-tag lg:text-xs lg:px-4 lg:py-2">XP Réelle rapide</div>
-                    <div class="benefit-tag lg:text-xs lg:px-4 lg:py-2">Sans CDI précoce</div>
-                    <div class="benefit-tag lg:text-xs lg:px-4 lg:py-2">Teste sans risque</div>
-                    <div class="benefit-tag lg:text-xs lg:px-4 lg:py-2">Renforce ton CV</div>
-                    <div class="benefit-tag lg:text-xs lg:px-4 lg:py-2">Cadre de confiance</div>
+                <div class="flex flex-wrap justify-center gap-2 md:gap-4 lg:gap-3 max-w-2xl lg:max-w-3xl mb-8 lg:mb-8 px-4">
+                    <div class="benefit-tag lg:text-[10px] lg:px-3 lg:py-1.5">XP Réelle rapide</div>
+                    <div class="benefit-tag lg:text-[10px] lg:px-3 lg:py-1.5">Sans CDI précoce</div>
+                    <div class="benefit-tag lg:text-[10px] lg:px-3 lg:py-1.5">Teste sans risque</div>
+                    <div class="benefit-tag lg:text-[10px] lg:px-3 lg:py-1.5">Renforce ton CV</div>
+                    <div class="benefit-tag lg:text-[10px] lg:px-3 lg:py-1.5">Cadre de confiance</div>
                 </div>
-                <div class="card-depth border-dashed lg:py-8">
-                    <p class="text-xs md:text-sm lg:text-lg font-medium italic opacity-60">"J'ai trouvé mon premier CDI grâce à une mission Alumbridge."</p>
+                <div class="card-depth border-dashed lg:py-6 lg:max-w-xl">
+                    <p class="text-xs md:text-sm lg:text-base font-medium italic opacity-60">"J'ai trouvé mon premier CDI grâce à une mission Alumbridge."</p>
                 </div>
             </div>
 
             <!-- 5. CIBLE -->
-            <div class="scene lg:max-w-5xl lg:mx-auto" id="scene-4">
+            <div class="scene lg:max-w-4xl lg:mx-auto" id="scene-4">
                 <div class="svg-container w-full h-full flex items-center justify-center opacity-5">
                     <svg viewBox="0 0 200 200" class="w-1/2" id="svg-target">
                         <circle cx="100" cy="100" r="80" stroke="currentColor" stroke-width="1" fill="none"/>
@@ -415,36 +411,36 @@
                         <circle id="target-center" cx="100" cy="100" r="10" fill="#4f46e5"/>
                     </svg>
                 </div>
-                <span class="bg-black text-white px-2 py-1 text-[7px] lg:text-[10px] font-bold uppercase mb-4 lg:mb-6 tracking-widest">rejoins le mouvement</span>
-                <h2 class="text-3xl md:text-5xl lg:text-4xl font-black mb-8 lg:mb-12 uppercase px-2">On a conçu ce <span class="text-indigo-600">PONT</span> pour toi.</h2>
+                <span class="bg-black text-white px-2 py-1 text-[7px] lg:text-[9px] font-bold uppercase mb-4 lg:mb-5 tracking-widest">rejoins le mouvement</span>
+                <h2 class="text-3xl md:text-5xl lg:text-3xl font-black mb-8 lg:mb-10 uppercase px-2">On a conçu ce <span class="text-indigo-600">PONT</span> pour toi.</h2>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 lg:gap-4 w-full px-4 lg:max-w-4xl">
-                    <div class="card-depth py-4 px-3 md:py-6 md:px-5 lg:py-5 border-l-4 border-l-black text-left max-w-none">
-                        <p class="text-[10px] md:text-xs lg:text-xs font-black uppercase leading-tight tracking-tight">Alumnis récemment diplômés.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 lg:gap-3 w-full px-4 lg:max-w-3xl">
+                    <div class="card-depth py-4 px-3 md:py-6 md:px-5 lg:py-4 lg:px-4 border-l-4 border-l-black text-left max-w-none">
+                        <p class="text-[10px] md:text-xs lg:text-[11px] font-black uppercase leading-tight tracking-tight">Alumnis récemment diplômés.</p>
                     </div>
-                    <div class="card-depth py-4 px-3 md:py-6 md:px-5 lg:py-5 border-l-4 border-l-black text-left max-w-none">
-                        <p class="text-[10px] md:text-xs lg:text-xs font-black uppercase leading-tight tracking-tight">Étudiants en fin de cursus.</p>
+                    <div class="card-depth py-4 px-3 md:py-6 md:px-5 lg:py-4 lg:px-4 border-l-4 border-l-black text-left max-w-none">
+                        <p class="text-[10px] md:text-xs lg:text-[11px] font-black uppercase leading-tight tracking-tight">Étudiants en fin de cursus.</p>
                     </div>
-                    <div class="card-depth py-4 px-3 md:py-6 md:px-5 lg:py-5 border-l-4 border-l-black text-left max-w-none">
-                        <p class="text-[10px] md:text-xs lg:text-xs font-black uppercase leading-tight tracking-tight">Profils hésitants (CDI vs Freelance).</p>
+                    <div class="card-depth py-4 px-3 md:py-6 md:px-5 lg:py-4 lg:px-4 border-l-4 border-l-black text-left max-w-none">
+                        <p class="text-[10px] md:text-xs lg:text-[11px] font-black uppercase leading-tight tracking-tight">Profils hésitants (CDI vs Freelance).</p>
                     </div>
-                    <div class="card-depth py-4 px-3 md:py-6 md:px-5 lg:py-5 border-l-4 border-l-black text-left max-w-none">
-                        <p class="text-[10px] md:text-xs lg:text-xs font-black uppercase leading-tight tracking-tight">Apprentissage par la pratique.</p>
+                    <div class="card-depth py-4 px-3 md:py-6 md:px-5 lg:py-4 lg:px-4 border-l-4 border-l-black text-left max-w-none">
+                        <p class="text-[10px] md:text-xs lg:text-[11px] font-black uppercase leading-tight tracking-tight">Apprentissage par la pratique.</p>
                     </div>
                 </div>
             </div>
 
             <!-- 6. FOOTER -->
-            <div class="scene lg:max-w-3xl lg:mx-auto" id="scene-5">
-                <div class="card-depth p-8 md:p-12 lg:p-12 bg-black text-white border-none shadow-2xl">
-                    <h2 class="text-xl md:text-2xl lg:text-3xl font-black mb-6 md:mb-10 lg:mb-8 leading-tight uppercase">Prêt à construire ton pont vers demain ?</h2>
-                    <button class="btn-premium bg-white text-black w-full mb-4 md:mb-6 lg:mb-6 lg:py-4" onclick="openModal('questionnaire')">Remplir le questionnaire</button>
-                    <div class="flex justify-between text-[8px] lg:text-[10px] font-bold opacity-40 tracking-widest">
+            <div class="scene lg:max-w-2xl lg:mx-auto" id="scene-5">
+                <div class="card-depth p-8 md:p-12 lg:p-10 bg-black text-white border-none shadow-2xl">
+                    <h2 class="text-xl md:text-2xl lg:text-2xl font-black mb-6 md:mb-10 lg:mb-6 leading-tight uppercase">Prêt à construire ton pont vers demain ?</h2>
+                    <button class="btn-premium bg-white text-black w-full mb-4 md:mb-6 lg:mb-5 lg:py-3.5" onclick="openModal('questionnaire')">Remplir le questionnaire</button>
+                    <div class="flex justify-between text-[8px] lg:text-[9px] font-bold opacity-40 tracking-widest">
                         <span>GRATUIT</span>
                         <span>SANS ENGAGEMENT</span>
                     </div>
                 </div>
-                <p class="mt-8 lg:mt-12 text-[8px] lg:text-[10px] font-bold opacity-50 tracking-widest uppercase">Made with ❤️ by ALUMBRIDGE Team </p>
+                <p class="mt-8 lg:mt-10 text-[8px] lg:text-[9px] font-bold opacity-50 tracking-widest uppercase">Made with ❤️ by ALUMBRIDGE Team </p>
             </div>
 
         </div>
