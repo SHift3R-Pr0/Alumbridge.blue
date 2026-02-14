@@ -37,7 +37,6 @@
             pointer-events: none;
         }
 
-        /* Augmentation de la hauteur pour réduire la sensibilité (plus de scroll nécessaire) */
         #scroll-container { height: 2500vh; position: relative; }
 
         #viewport {
@@ -307,7 +306,6 @@
     <div id="scroll-container">
         <div id="viewport">
             
-            <!-- 1. HERO -->
             <div class="scene lg:max-w-4xl lg:mx-auto" id="scene-0">
                 <div class="svg-container w-full max-w-xl opacity-10">
                     <svg viewBox="0 0 800 200" fill="none" xmlns="http://www.w3.org/2000/svg" id="svg-bridge">
@@ -332,7 +330,6 @@
                 </div>
             </div>
 
-            <!-- 2. PROBLÈME (PARADOXE) -->
             <div class="scene lg:max-w-4xl lg:mx-auto" id="scene-1">
                 <div class="svg-container w-48 h-48 opacity-10">
                     <svg viewBox="0 0 200 200" id="svg-balance">
@@ -365,7 +362,6 @@
                 </div>
             </div>
 
-            <!-- 3. SOLUTION -->
             <div class="scene lg:max-w-5xl lg:mx-auto" id="scene-2">
                 <div class="svg-container w-full h-full opacity-5">
                     <svg viewBox="0 0 1000 1000" id="svg-nodes">
@@ -396,7 +392,6 @@
                 </div>
             </div>
 
-            <!-- 4. ATOUTS -->
             <div class="scene lg:max-w-4xl lg:mx-auto" id="scene-3">
                 <div class="svg-container w-full h-full">
                     <svg viewBox="0 0 100 100" id="svg-floaters" class="w-full h-full">
@@ -417,7 +412,6 @@
                 </div>
             </div>
 
-            <!-- 5. CIBLE -->
             <div class="scene lg:max-w-4xl lg:mx-auto" id="scene-4">
                 <div class="svg-container w-full h-full flex items-center justify-center opacity-5">
                     <svg viewBox="0 0 200 200" class="w-1/2" id="svg-target">
@@ -446,7 +440,6 @@
                 </div>
             </div>
 
-            <!-- 6. FOOTER -->
             <div class="scene lg:max-w-2xl lg:mx-auto" id="scene-5">
                 <div class="card-depth p-8 md:p-12 lg:p-10 bg-black text-white border-none shadow-2xl">
                     <h2 class="text-xl md:text-2xl lg:text-2xl font-black mb-6 md:mb-10 lg:mb-6 leading-tight uppercase">Prêt à construire ton pont vers demain ?</h2>
@@ -464,8 +457,6 @@
 
     <script>
         gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
-        
-        // Active la normalisation pour lisser le scroll tactile et éviter les sauts brusques d'inertie
         ScrollTrigger.normalizeScroll(true);
 
         const totalScenes = 6;
@@ -522,8 +513,16 @@
 
         function scrollToScene(index) {
             const totalPx = document.body.scrollHeight - window.innerHeight;
-            const target = (totalPx / (totalScenes - 0.85)) * index;
-            gsap.to(window, { duration: 0.6, scrollTo: target, ease: "power2.out" });
+            // Points d'ancrage calculés pour tomber pile au milieu de la visibilité 100% de chaque scène (durée totale 135)
+            const snapPoints = [10, 35, 60, 85, 110, 130];
+            const targetProgress = snapPoints[index] / 135;
+            const targetScroll = totalPx * targetProgress;
+            
+            gsap.to(window, { 
+                duration: 0.8, 
+                scrollTo: targetScroll, 
+                ease: "power2.inOut" 
+            });
         }
 
         function openModal(type) {
