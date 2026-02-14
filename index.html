@@ -440,7 +440,8 @@
                 </div>
             </div>
 
-            <div class="scene lg:max-w-2xl lg:mx-auto" id="scene-5">
+            <!-- Ajout de pb-24 lg:pb-32 pour remonter le contenu sur PC -->
+            <div class="scene lg:max-w-2xl lg:mx-auto pb-24 lg:pb-32" id="scene-5">
                 <div class="card-depth p-8 md:p-12 lg:p-10 bg-black text-white border-none shadow-2xl">
                     <h2 class="text-xl md:text-2xl lg:text-2xl font-black mb-6 md:mb-10 lg:mb-6 leading-tight uppercase">Prêt à construire ton pont vers demain ?</h2>
                     <button class="btn-premium bg-white text-black w-full mb-4 md:mb-6 lg:mb-5 lg:py-3.5" onclick="openModal('questionnaire')">Remplir le questionnaire</button>
@@ -513,7 +514,6 @@
 
         function scrollToScene(index) {
             const totalPx = document.body.scrollHeight - window.innerHeight;
-            // Points d'ancrage calculés pour tomber pile au milieu de la visibilité 100% de chaque scène (durée totale 135)
             const snapPoints = [10, 35, 60, 85, 110, 130];
             const targetProgress = snapPoints[index] / 135;
             const targetScroll = totalPx * targetProgress;
